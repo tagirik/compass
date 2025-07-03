@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Калькулятор тарифа Компаса</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent-color: #FE4B4C;
+      --bg-color: #f9f9f9;
+      --card-bg: #fff;
+      --border-color: #dcdcdc;
+      --text-color: #1f1f1f;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      background: var(--bg-color);
+      color: var(--text-color);
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    .billing-period {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+    .billing-period button {
+      background: none;
+      border: 2px solid var(--accent-color);
+      color: var(--accent-color);
+      font-weight: 600;
+      padding: 10px 20px;
+      margin: 0 10px;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+    .billing-period button.active {
+      background: var(--accent-color);
+      color: white;
+    }
+    .tariff-grid {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .tariff-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      flex: 1;
+      min-width: 320px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .tariff-card h2 {
+      margin-top: 0;
+      color: var(--accent-color);
+    }
+    .features {
+      margin-bottom: 20px;
+    }
+    .features li {
+      margin-bottom: 6px;
+    }
+    .section {
+      margin-bottom: 20px;
+    }
+    select, input[type="number"] {
+      padding: 6px;
+      width: 100%;
+      margin-top: 5px;
+      border-radius: 4px;
+      border: 1px solid var(--border-color);
+    }
+    .drm-control {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 5px;
+    }
+    .drm-control button {
+      padding: 4px 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .checkbox-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 5px;
+    }
+    .total {
+      font-size: 20px;
+      font-weight: 600;
+      margin-top: 20px;
+    }
+    .buy-btn {
+      background: var(--accent-color);
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="billing-period">
+      <button class="active">1 месяц</button>
+      <button>6 месяцев</button>
+      <button>12 месяцев</button>
+    </div>
+
+    <div class="tariff-grid">
+      <!-- Компас Базовый -->
+      <div class="tariff-card">
+        <h2>Компас Базовый</h2>
+        <ul class="features">
+          <li>Лицензия на доступ к сервису</li>
+          <li>Все фильтры</li>
+          <li>1 пользователь</li>
+        </ul>
+
+        <div class="section">
+          <strong>Выберите ежемесячный пакет выгрузки</strong>
+          <select>
+            <option>500</option>
+            <option>1000</option>
+            <option>1500</option>
+            <option>3000</option>
+          </select>
+          <div>Цена: ... ₽</div>
+        </div>
+
+        <div class="section">
+          <strong>Выберите разовый пакет выгрузки</strong>
+          <select>
+            <option>500</option>
+            <option>1000</option>
+            <option>1500</option>
+            <option>3000</option>
+          </select>
+          <div>Цена: ... ₽</div>
+        </div>
+
+        <div class="section">
+          <strong>Дополнительное рабочее место</strong>
+          <div class="drm-control">
+            <button>-</button>
+            <input type="number" value="1" min="1">
+            <button>+</button>
+          </div>
+          <div>Цена: ... ₽</div>
+        </div>
+
+        <div class="section">
+          <strong>API-доступ</strong>
+          <div class="checkbox-row">
+            <input type="checkbox" id="api-basic">
+            <label for="api-basic">Добавить</label>
+          </div>
+          <div>Цена: ... ₽</div>
+        </div>
+
+        <div class="total">Итого: ... ₽</div>
+        <button class="buy-btn">Купить</button>
+      </div>
+
+      <!-- Компас Про -->
+      <div class="tariff-card">
+        <h2>Компас Про</h2>
+        <ul class="features">
+          <li>Всё, что в Базовом</li>
+          <li>Свои данные</li>
+          <li>Анализ</li>
+          <li>Центр выгрузок</li>
+          <li>Расширенные данные в выгрузке</li>
+          <li>+2 дополнительных пользователя</li>
+        </ul>
+
+        <div class="section">
+          <strong>Выберите ежемесячный пакет выгрузки</strong>
+          <select>
+            <option>500</option>
+            <option>1000</option>
+            <option>1500</option>
+            <option>3000</option>
+          </select>
+          <div>Цена: ... ₽</div>
+        </div>
+
+        <div class="section">
+          <strong>Выберите разовый пакет выгрузки</strong>
+          <select>
+            <option>500</option>
+            <option>1000</option>
+            <option>1500</option>
+            <option>3000</option>
+          </select>
+          <div>Цена: ... ₽</div>
+        </div>
+
+        <div class="section">
+          <strong>Дополнительное рабочее место</strong>
+          <div class="drm-control">
+            <button>-</button>
+            <input type="number" value="1" min="1">
+            <button>+</button>
+          </div>
+          <div>Цена: ... ₽</div>
+        </div>
+
+        <div class="section">
+          <strong>API-доступ</strong>
+          <div class="checkbox-row">
+            <input type="checkbox" id="api-pro">
+            <label for="api-pro">Добавить</label>
+          </div>
+          <div>Цена: ... ₽</div>
+        </div>
+
+        <div class="total">Итого: ... ₽</div>
+        <button class="buy-btn">Купить</button>
+      </div>
+    </div>
+  </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const tariffs = document.querySelectorAll('.tariff-card');
+
+  tariffs.forEach(tariff => {
+    const monthlySelect = tariff.querySelectorAll('select')[0];
+    const oneTimeSelect = tariff.querySelectorAll('select')[1];
+    const drmInput = tariff.querySelector('input[type="number"]');
+    const apiCheckbox = tariff.querySelector('input[type="checkbox"]');
+    const totalElem = tariff.querySelector('.total');
+
+    const monthlyPriceBlock = monthlySelect.nextElementSibling;
+    const oneTimePriceBlock = oneTimeSelect.nextElementSibling;
+    const drmPriceBlock = drmInput.parentElement.nextElementSibling;
+    const apiPriceBlock = apiCheckbox.parentElement.nextElementSibling;
+
+    const monthlyPrices = {
+      500: 500,
+      1000: 900,
+      1500: 1300,
+      3000: 2500
+    };
+
+    const oneTimePrices = {
+      500: 600,
+      1000: 1100,
+      1500: 1600,
+      3000: 3000
+    };
+
+    const drmUnitPrice = 1000;
+    const apiPrice = 2000;
+
+    function updatePrice() {
+      const monthly = parseInt(monthlySelect.value);
+      const oneTime = parseInt(oneTimeSelect.value);
+      const drmCount = parseInt(drmInput.value) || 1;
+      const apiChecked = apiCheckbox.checked;
+
+      const monthlyPrice = monthlyPrices[monthly] || 0;
+      const oneTimePrice = oneTimePrices[oneTime] || 0;
+      const drmPrice = (drmCount - 1) * drmUnitPrice;
+      const api = apiChecked ? apiPrice : 0;
+
+      monthlyPriceBlock.textContent = `Цена: ${monthlyPrice} ₽`;
+      oneTimePriceBlock.textContent = `Цена: ${oneTimePrice} ₽`;
+      drmPriceBlock.textContent = `Цена: ${drmPrice} ₽`;
+      apiPriceBlock.textContent = `Цена: ${api} ₽`;
+
+      const total = monthlyPrice + oneTimePrice + drmPrice + api;
+      totalElem.textContent = `Итого: ${total} ₽`;
+    }
+
+    // Init
+    updatePrice();
+
+    monthlySelect.addEventListener('change', updatePrice);
+    oneTimeSelect.addEventListener('change', updatePrice);
+    drmInput.addEventListener('change', updatePrice);
+    apiCheckbox.addEventListener('change', updatePrice);
+
+    const minusBtn = drmInput.parentElement.querySelector('button:first-child');
+    const plusBtn = drmInput.parentElement.querySelector('button:last-child');
+
+    minusBtn.addEventListener('click', () => {
+      drmInput.value = Math.max(1, parseInt(drmInput.value) - 1);
+      updatePrice();
+    });
+    plusBtn.addEventListener('click', () => {
+      drmInput.value = parseInt(drmInput.value) + 1;
+      updatePrice();
+    });
+  });
+});
+</script>
+</body>
+</html>
